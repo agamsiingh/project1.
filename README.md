@@ -1,6 +1,3 @@
-Based on your files and the project structure, here’s a suggested README for your GitHub repository:
-
----
 
 # Blog Application
 
