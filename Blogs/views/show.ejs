@@ -1,0 +1,118 @@
+<%- include('./partials/header') %>
+
+<style>
+    /* General body styling */
+body {
+    background-color: #f4f7f6;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header and footer styling */
+header, footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Blog container */
+#showw {
+    background-color: white;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#showw h1, #showw h2, #showw h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+#showw p {
+    margin: 15px 0;
+    font-size: 18px;
+    color: #666;
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+button a:hover {
+    color: white;
+}
+
+/* Delete button with a red color */
+form button {
+    background-color: #dc3545;
+}
+
+form button:hover {
+    background-color: #c82333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #showw {
+        width: 95%;
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+</style>
+<h1>Showing a particular Blog</h1>
+
+<div id="showw">
+
+    <h1><%=foundProduct.id%></h1>
+    <h2><%=foundProduct.title%></h2>
+    <h3><%=foundProduct.author%></h3>
+    <p><%=foundProduct.comment%></p>
+    <p><button> <a href="/blogs">Back</a> </button></p>
+    <p><button> <a href="/blogs/<%=foundProduct.id%>/edit">Edit</a> </button></p>
+    <p>
+        <form action="/blogs/<%=foundProduct.id%>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </p>
+</div>
+
+<%- include('./partials/footer') %>
